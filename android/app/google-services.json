@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "566730237446",
+    "firebase_url": "https://locapp-7f579.firebaseio.com",
+    "project_id": "locapp-7f579",
+    "storage_bucket": "locapp-7f579.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566730237446:android:68ffcc37b0893f28784587",
+        "android_client_info": {
+          "package_name": "com.example.locapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566730237446-gdgovtev5v50vj5ae3i241rievvhd21s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXIPijVHWctKyZBGKKeIBDtzVRGxEe4xI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566730237446-gdgovtev5v50vj5ae3i241rievvhd21s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
