@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'MapRequests.dart';
+import 'package:locapp/Provider/MapRequests.dart';
 
-class MapState with ChangeNotifier {
+class AppState with ChangeNotifier {
   static LatLng _initialPosition;
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
@@ -25,12 +25,11 @@ class MapState with ChangeNotifier {
   Set<Marker> get markers => _markers;
   Set<Polyline> get polyLines => _polyLines;
 
-  MapState() {
+  AppState() {
     _getUserLocation();
     // _loadingInitialPosition();
     // enableGPSwarning();
   }
-
 // TO GET THE USERS LOCATION
   void _getUserLocation() async {
     Position position = await Geolocator().getCurrentPosition(
@@ -155,4 +154,15 @@ class MapState with ChangeNotifier {
     _mapController = controller;
     notifyListeners();
   }
+
+//  LOADING INITIAL POSITION
+  // void _loadingInitialPosition()async{
+  //   await Future.delayed(Duration(seconds: 5)).then((v) {
+  //     if(_initialPosition == null){
+  //       locationServiceActive = false;
+  //       print('=========================running==========================');
+  //       notifyListeners();
+  //     }
+  //   });
+  // }
 }
