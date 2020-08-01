@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'MapRequests.dart';
 
 class MapState with ChangeNotifier {
+  MapType currentMapType = MapType.normal;
   static LatLng _initialPosition;
   LatLng _lastPosition = _initialPosition;
   bool locationServiceActive = true;
@@ -52,6 +53,11 @@ class MapState with ChangeNotifier {
         width: 10,
         points: _convertToLatLng(_decodePoly(encondedPoly)),
         color: Colors.black));
+    notifyListeners();
+  }
+
+  void onMapTypeButtonPressed() {
+    currentMapType = currentMapType == MapType.normal ? MapType.hybrid : MapType.normal;
     notifyListeners();
   }
 

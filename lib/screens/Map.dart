@@ -29,6 +29,7 @@ class Map extends StatefulWidget {
 }
 
 class _MapState extends State<Map> {
+
   @override
   Widget build(BuildContext context) {
     final mapState = Provider.of<MapState>(context);
@@ -46,12 +47,12 @@ class _MapState extends State<Map> {
             children: <Widget>[
               GoogleMap(
                 initialCameraPosition: CameraPosition(
-                  target: mapState.initialPosition, 
+                  target: mapState.initialPosition,
                   zoom: 16.23423412432543,
                 ),
                 onMapCreated: mapState.onCreated,
                 myLocationEnabled: true,
-                mapType: MapType.satellite,
+                mapType: mapState.currentMapType,
                 compassEnabled: true,
                 markers: mapState.markers,
                 onCameraMove: mapState.onCameraMove,
@@ -147,7 +148,9 @@ class _MapState extends State<Map> {
                   height: 70.0,
                   width: double.infinity,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15)),
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
@@ -159,23 +162,12 @@ class _MapState extends State<Map> {
                   ),
                   child: TextField(
                     onTap: () async {
-                      // Prediction p = await PlacesAutocomplete.show(
-                      //     context: context,
-                      //     apiKey: apiKey,
-                      //     language: "en",
-                      //     components: [Component(Component.country, "KE")]);
-                      // if (p != null) {
-                      //   // Todo: Implement places to Coordinate.
-                      //   // mapState.sendRequest();
-                      // }
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SearchShops()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SearchShops()));
                     },
                     cursorColor: blueaccent,
-                    // controller: mapState.destinationController,
-                    // textInputAction: TextInputAction.go,
-                    // onSubmitted: (value) {
-                    //   mapState.sendRequest(value);
-                    // },
                     decoration: InputDecoration(
                       icon: Container(
                         margin: EdgeInsets.only(left: 20, top: 5),
@@ -203,6 +195,15 @@ class _MapState extends State<Map> {
               //    child: Icon(Icons.add_location, color: white,),
               //    ),
               //  )
+              Positioned(
+                  bottom: 80.0,
+                  right: 5.0,
+                  // left: 0.0,
+                  child: FloatingActionButton(
+                    backgroundColor: Colors.redAccent,
+                    onPressed: () => mapState.onMapTypeButtonPressed(),
+                    child: Icon(Icons.map, color: Colors.white),
+                  )),
             ],
           );
   }
