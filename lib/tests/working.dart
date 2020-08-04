@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:locapp/Models/NeerShops.dart';
-import 'package:locapp/utils/ProgressCircle.dart';
+import '../utils/ColorLoaders.dart';
 
 class SearchShops extends StatelessWidget {
   @override

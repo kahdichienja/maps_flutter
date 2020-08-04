@@ -1,28 +1,16 @@
-import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:locapp/Models/NeerShops.dart';
-import 'package:locapp/utils/ProgressCircle.dart';
-import 'dart:async';
+import '../utils/ApiUrls.dart';
+import '../Controllers/FetchUsersController.dart';
+import '../Models/NeerShops.dart';
+import '../utils/ColorLoaders.dart';
 
-final String uri = 'https://jsonplaceholder.typicode.com/users';
-
-Future<List<UserShopInfo>> fetchPosts(http.Client client) async {
-  final response = await client.get(uri);
-
-  return compute(parseUserShopInfo, response.body);
-}
-
-List<UserShopInfo> parseUserShopInfo(String responFroJson) {
-  final parsed = json.decode(responFroJson).cast<Map<String, dynamic>>();
-
-  return parsed
-      .map<UserShopInfo>((json) => UserShopInfo.fromJson(json))
-      .toList();
-}
 
 class SearchShops extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +25,7 @@ class SearchShops extends StatelessWidget {
         ],
       ),
       body: FutureBuilder<List<UserShopInfo>>(
-        future: fetchPosts(http.Client()),
+        future: fetchShopInfo(http.Client(), usersShopUrl),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
 

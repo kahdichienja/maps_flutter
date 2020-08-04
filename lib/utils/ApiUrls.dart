@@ -1,0 +1,1 @@
+final String usersShopUrl = 'https://jsonplaceholder.typicode.com/users';

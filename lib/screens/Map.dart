@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:locapp/utils/dot_type.dart';
-import '../utils/ProgressCircle.dart';
+import '../utils/ColorLoaders.dart';
 import 'package:locapp/utils/core.dart';
 import 'package:provider/provider.dart';
 import '../Provider/MapProvider.dart';
@@ -30,6 +30,8 @@ class Map extends StatefulWidget {
 
 class _MapState extends State<Map> {
 
+  
+
   @override
   Widget build(BuildContext context) {
     final mapState = Provider.of<MapState>(context);
@@ -47,6 +49,8 @@ class _MapState extends State<Map> {
             children: <Widget>[
               GoogleMap(
                 initialCameraPosition: CameraPosition(
+                  tilt: 59.440717697143555,
+                  bearing: 192.8334901395799,
                   target: mapState.initialPosition,
                   zoom: 16.23423412432543,
                 ),
@@ -58,6 +62,25 @@ class _MapState extends State<Map> {
                 onCameraMove: mapState.onCameraMove,
                 polylines: mapState.polyLines,
               ),
+              Positioned(
+                top: 10.0,
+                right: 15.0,
+                left: 15.0,
+                child: Container(
+                  height: 29.0,
+                  width: double.infinity,
+                  child: Center(
+                    child: Text(
+                      'Distance: ~ ${((mapState.distanceInMeters)/1000).ceil()} Km', 
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.redAccent
+                      ),
+                    )
+                  ),
+                ),
+              ),
 
               Positioned(
                 top: 50.0,
@@ -68,7 +91,7 @@ class _MapState extends State<Map> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(3.0),
-                    color: white10,
+                    color: Colors.white,
                     boxShadow: [
                       BoxShadow(
                           color: Colors.grey,

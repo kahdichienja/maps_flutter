@@ -8,6 +8,9 @@ class MapState with ChangeNotifier {
   MapType currentMapType = MapType.normal;
   static LatLng _initialPosition;
   LatLng _lastPosition = _initialPosition;
+
+  double distanceInMeters = 0;
+
   bool locationServiceActive = true;
   final Set<Marker> _markers = {};
   final Set<Polyline> _polyLines = {};
@@ -138,6 +141,7 @@ class MapState with ChangeNotifier {
 
   // SEND REQUEST
   void sendRequest(String intendedLocation) async {
+
     List<Placemark> placemark =
         await Geolocator().placemarkFromAddress(intendedLocation);
     double latitude = placemark[0].position.latitude;
@@ -147,7 +151,22 @@ class MapState with ChangeNotifier {
     String route = await _googleMapsServices.getRouteCoordinates(
         _initialPosition, destination);
     createRoute(route);
+
+    Position currposition = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
+    double distanceInMeter = await Geolocator().distanceBetween(
+      currposition.latitude,
+      currposition.longitude,
+
+      latitude,
+      longitude,
+    );
+    
+    distanceInMeters = distanceInMeter;
+
+    print(distanceInMeters);
+
     notifyListeners();
+
   }
 
   // ON CAMERA MOVE
@@ -160,5 +179,15 @@ class MapState with ChangeNotifier {
   void onCreated(GoogleMapController controller) {
     _mapController = controller;
     notifyListeners();
+  }
+  Future<void> calcDistance(CameraPosition lposition) async {
+  // Position position = await Geolocator().getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
+  // double distanceInMeters = await Geolocator().distanceBetween(
+  // position.latitude,
+  // position.longitude,
+
+  // lposition.latitude,
+  // lposition.longitude,
+// );
   }
 }

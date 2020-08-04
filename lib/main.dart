@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Provider/MapProvider.dart';
+// import 'screens/LoginPage.dart';
 import 'screens/Map.dart';
 
 void main() {
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Location & Route',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
