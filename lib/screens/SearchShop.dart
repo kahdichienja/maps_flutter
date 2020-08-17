@@ -36,7 +36,7 @@ class SearchShops extends StatelessWidget {
             icon: Icon(
               Icons.location_searching,
               color: Colors.indigo[100],
-            ),
+            ), onPressed: () {  },
           ),
         ));
   }

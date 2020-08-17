@@ -3,8 +3,7 @@ import '../Provider/MapProvider.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 
-import 'SearcWidgetPage.dart';
-import 'SearchShop.dart';
+import '../screens/SearchShop.dart';
 
 
 class MapView extends StatefulWidget {
@@ -65,7 +64,6 @@ class _MapViewState extends State<MapView> {
   @override
   Widget build(BuildContext context) {
     final mapState = Provider.of<MapState>(context);
-    
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
@@ -138,16 +136,19 @@ class _MapViewState extends State<MapView> {
                     SizedBox(height: 20),
                     ClipOval(
                       child: Material(
-                        color: Colors.white, // button color
+                        color: Colors.blue[100], // button color
                         child: InkWell(
-                          splashColor: Colors.white, // inkwell color
+                          splashColor: Colors.blue, // inkwell color
                           child: SizedBox(
                             width: 50,
                             height: 50,
-                            child: Icon(Icons.business,),
+                            child: Icon(Icons.location_searching),
                           ),
                           onTap: () async {
-                            Navigator.push(context,MaterialPageRoute(builder: (context) => SearchShops()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SearchShops()));
                           },
                         ),
                       ),
@@ -320,7 +321,7 @@ class _MapViewState extends State<MapView> {
               right: 0.0,
               left: 0.0,
               child: Container(
-                height: 250.0,
+                height: 50.0,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -335,7 +336,27 @@ class _MapViewState extends State<MapView> {
                         spreadRadius: 5)
                   ],
                 ),
-                child: SearchWidgetPage()
+                child: TextField(
+                  onTap: () async {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SearchShops()));
+                  },
+                  cursorColor: Colors.blueAccent,
+                  decoration: InputDecoration(
+                    icon: Container(
+                      margin: EdgeInsets.only(left: 20, top: 5),
+                      width: 10,
+                      height: 10,
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.blueAccent,
+                      ),
+                    ),
+                    hintText: "Search Neer Deliveries ..?",
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(left: 15.0, top: 16.0),
+                  ),
+                ),
               ),
             ),
 

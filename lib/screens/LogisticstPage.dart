@@ -14,6 +14,7 @@ class _DashboardTableState extends State<DashboardTable> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      // scrollDirection: Axis.horizontal,
       child: PaginatedDataTable(
         header: Text(
           'Select Your Delivery.',
