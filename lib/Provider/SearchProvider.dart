@@ -64,7 +64,7 @@ class SearchState with ChangeNotifier {
                         children: <Widget>[
                           ListTile(
                             leading: CircleAvatar(
-                                backgroundColor: Colors.blueAccent,
+                                backgroundColor: Colors.green,
                                 child: Text(info.name[0],
                                     style: TextStyle(
                                       fontSize: 18.0,
@@ -108,9 +108,12 @@ class SearchState with ChangeNotifier {
                 ),
                 SimpleRoundIconButton(
                     icon: Icon(Icons.location_on),
-                    iconColor: Colors.blueAccent,
-                    buttonText: Text('Pin Location On Map.'),
-                    backgroundColor: Colors.indigo[100],
+                    iconColor: Colors.greenAccent,
+                    buttonText: Text(
+                      'Pin Location On Map.',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    backgroundColor: Colors.green,
                     onPressed: () => createMakerFromCoord(
                         context,
                         double.parse(info.address.geo.lat),
@@ -174,7 +177,9 @@ class SearchState with ChangeNotifier {
         context: context,
         animType: AnimType.SCALE,
         dialogType: DialogType.SUCCES,
-        body: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+        body: 
+        
+        Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
           Card(
             elevation: 1.0,
             child: ListTile(
@@ -186,18 +191,17 @@ class SearchState with ChangeNotifier {
             ),
           ),
           Container(
-            child: Center(
-              child: Text('Deliveries In This Area',
-                style: TextStyle(fontSize: 20, letterSpacing: 2.5),
-              )
-            )
-          ),
+              child: Center(
+                  child: Text(
+            'Deliveries In This Area',
+            style: TextStyle(fontSize: 20, letterSpacing: 2.5),
+          ))),
           Card(
             elevation: 1.0,
             child: ListTile(
               leading: Icon(
                 Icons.view_compact,
-                color: Colors.blueAccent,
+                color: Colors.green,
               ),
               title: Text('Wells Fugo\n'),
               subtitle: Text('Delivery Price: 12/= Per Km'),
@@ -210,7 +214,7 @@ class SearchState with ChangeNotifier {
             child: ListTile(
               leading: Icon(
                 Icons.business,
-                color: Colors.blue,
+                color: Colors.green,
               ),
               title: Text('Curris Ent.\n'),
               subtitle: Text('Delivery Price: 7/= Per Km'),
@@ -222,7 +226,7 @@ class SearchState with ChangeNotifier {
             child: ListTile(
               leading: Icon(
                 Icons.verified_user,
-                color: Colors.lightBlue,
+                color: Colors.green,
               ),
               title: Text('Maber Currios Inc.\n'),
               subtitle: Text('Delivery Price: 5.90/= Per Km'),
@@ -272,7 +276,7 @@ class SearchState with ChangeNotifier {
                         children: <Widget>[
                           ListTile(
                             leading: CircleAvatar(
-                                backgroundColor: Colors.blueAccent,
+                                backgroundColor: Colors.green,
                                 child: Text(info.name[0],
                                     style: TextStyle(
                                       fontSize: 18.0,
@@ -286,7 +290,7 @@ class SearchState with ChangeNotifier {
                           ),
                           SimpleRoundIconButton(
                               icon: Icon(Icons.location_on),
-                              iconColor: Colors.blueAccent,
+                              iconColor: Colors.green,
                               buttonText: Text('Pin Location On Map.'),
                               backgroundColor: Colors.indigo[100],
                               onPressed: () => createMakerFromCoord(

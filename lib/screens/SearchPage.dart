@@ -14,7 +14,7 @@ class _SearchPageState extends State<SearchPage> {
     final searchState = Provider.of<SearchState>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: Colors.green,
         title: Center(
           child: Text('Search Adresses Or Shop Name.'),
         ),

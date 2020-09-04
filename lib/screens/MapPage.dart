@@ -51,7 +51,7 @@ class _MapViewState extends State<MapView> {
               Radius.circular(10.0),
             ),
             borderSide: BorderSide(
-              color: Colors.blue[300],
+              color: Colors.greenAccent,
               width: 2,
             ),
           ),
@@ -100,9 +100,9 @@ class _MapViewState extends State<MapView> {
                   children: <Widget>[
                     ClipOval(
                       child: Material(
-                        color: Colors.blue[100], // button color
+                        color: Colors.lightGreen, // button color
                         child: InkWell(
-                          splashColor: Colors.blue, // inkwell color
+                          splashColor: Colors.lightGreenAccent, // inkwell color
                           child: SizedBox(
                             width: 50,
                             height: 50,
@@ -119,9 +119,9 @@ class _MapViewState extends State<MapView> {
                     SizedBox(height: 20),
                     ClipOval(
                       child: Material(
-                        color: Colors.blue[100], // button color
+                        color: Colors.lightGreen, // button color
                         child: InkWell(
-                          splashColor: Colors.blue, // inkwell color
+                          splashColor: Colors.lightGreen, // inkwell color
                           child: SizedBox(
                             width: 50,
                             height: 50,
@@ -259,7 +259,7 @@ class _MapViewState extends State<MapView> {
                                 });
                               }
                             : null,
-                        color: Colors.blueAccent,
+                        color: Colors.lightGreenAccent,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -287,9 +287,9 @@ class _MapViewState extends State<MapView> {
                   padding: const EdgeInsets.only(right: 10.0, bottom: 10.0),
                   child: ClipOval(
                     child: Material(
-                      color: Colors.orange[100], // button color
+                      color: Colors.lightGreenAccent, // button color
                       child: InkWell(
-                        splashColor: Colors.orange, // inkwell color
+                        splashColor: Colors.lightGreen, // inkwell color
                         child: SizedBox(
                           width: 56,
                           height: 56,
@@ -344,7 +344,7 @@ class _MapViewState extends State<MapView> {
                 right: 5.0,
                 // left: 0.0,
                 child: FloatingActionButton(
-                  backgroundColor: Colors.redAccent,
+                  backgroundColor: Colors.green,
                   onPressed: () => mapState.onMapTypeButtonPressed(),
                   child: Icon(Icons.map, color: Colors.white),
                 )),

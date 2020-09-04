@@ -21,9 +21,9 @@ class SearchShops extends StatelessWidget {
                 ? ShopView(shopInfo: snapshot.data)
                 : Center(
                     child: ColorLoader2(
-                    color3: Colors.blueAccent,
+                    color3: Colors.green,
                     color2: Colors.greenAccent,
-                    color1: Colors.redAccent,
+                    color1: Colors.lightGreenAccent,
                   ));
           },
         ),
@@ -68,7 +68,7 @@ class ShopView extends StatelessWidget {
               leading: Column(
                 children: <Widget>[
                   CircleAvatar(
-                      backgroundColor: Colors.blueAccent,
+                      backgroundColor: Colors.green,
                       child: Text(shopInfo[position].name[0],
                           style: TextStyle(
                             fontSize: 18.0,
@@ -110,7 +110,7 @@ class ShopView extends StatelessWidget {
                       Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     ListTile(
                       leading: CircleAvatar(
-                          backgroundColor: Colors.blueAccent,
+                          backgroundColor: Colors.green,
                           child: Text(info.name[0],
                               style: TextStyle(
                                 fontSize: 18.0,
