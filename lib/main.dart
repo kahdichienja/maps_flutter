@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Provider/MapProvider.dart';
 import 'Provider/SearchProvider.dart';
-import 'mpesa/access_token.dart';
 import 'mpesa/lipa_na_mpesa_oline.dart';
-import 'screens/MapPage.dart';
-import 'utils/Buttons.dart';
 // import 'tests/search_test.dart';
 
 void main() {
